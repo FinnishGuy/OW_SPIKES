@@ -66,13 +66,14 @@ public partial class ItemSpawner : Node
 			return;
 		}
 		GD.Print("Item prefab loaded: " + item.Name);
-		this.GetParent().AddChild(item);
-
-		GD.Print("Item path:" + item.GetPath());
 
 		item.GlobalPosition = spawnPoint;
-
 		GD.Print("Item spawned at: " + item.Position);
+		
+		this.GetParent().AddChild(item);
+		GD.Print("Item path:" + item.GetPath());
+
+
 		
 		CurrentItems++;
 	}
