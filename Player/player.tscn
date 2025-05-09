@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://b3b6yxw8sblbb"]
+
+[ext_resource type="Script" path="res://Player/Scripts/Player.cs" id="1_88ish"]
+[ext_resource type="Texture2D" uid="uid://dnvn2tp2ji757" path="res://Player/Textures/player.png" id="2_d3bi7"]
+[ext_resource type="Script" path="res://Player/Scripts/CollisionDetection.cs" id="3_idktl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i4oan"]
+radius = 5.0
+
+[sub_resource type="Curve" id="Curve_y8g08"]
+_data = [Vector2(0.1, 0.1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_xt63l"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_88ish")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_d3bi7")
+
+[node name="PlayerArea" type="Area2D" parent="." groups=["Player"]]
+script = ExtResource("3_idktl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea"]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_i4oan")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 5
+lifetime = 0.5
+fixed_fps = 60
+draw_order = 1
+texture = ExtResource("2_d3bi7")
+gravity = Vector2(0, 0)
+scale_amount_curve = SubResource("Curve_y8g08")
+color_ramp = SubResource("Gradient_xt63l")

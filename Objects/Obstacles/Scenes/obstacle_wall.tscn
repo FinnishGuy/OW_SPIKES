@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3si6n5l5i5uu"]
+
+[ext_resource type="Script" path="res://Objects/Obstacles/Scripts/WallMovement.cs" id="1_ap4la"]
+[ext_resource type="Texture2D" uid="uid://ck2c1moyl3gd0" path="res://Objects/Obstacles/Textures/spike_wall_v2.png" id="2_b0lin"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kc4de"]
+friction = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r5kcs"]
+size = Vector2(124.469, 597)
+
+[node name="ObstacleWall" type="RigidBody2D" groups=["Obstacle"]]
+collision_mask = 0
+physics_material_override = SubResource("PhysicsMaterial_kc4de")
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_ap4la")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_r5kcs")
+debug_color = Color(0, 0.595, 0.7, 0.0980392)
+
+[node name="WallArea" type="Area2D" parent="." groups=["Obstacle"]]
+unique_name_in_owner = true
+linear_damp = 0.0
+angular_damp = 0.0
+
+[node name="SpikeCollision" type="CollisionShape2D" parent="WallArea"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_r5kcs")
+debug_color = Color(0, 0.595, 0.7, 0.0980392)
+
+[node name="SpikeWall" type="Sprite2D" parent="."]
+modulate = Color(0.68, 0.1088, 0.1088, 1)
+z_as_relative = false
+texture_filter = 1
+position = Vector2(2.98023e-06, 0)
+scale = Vector2(0.96, 1)
+texture = ExtResource("2_b0lin")

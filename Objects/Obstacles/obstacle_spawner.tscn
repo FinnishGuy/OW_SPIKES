@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwv1itihaq0sm"]
+
+[ext_resource type="Script" path="res://Objects/Obstacles/ObstacleSpawner.cs" id="1_mbxjw"]
+[ext_resource type="PackedScene" uid="uid://d3si6n5l5i5uu" path="res://Objects/Obstacles/Scenes/obstacle_wall.tscn" id="1_x2t3o"]
+
+[node name="ObstacleSpawner" type="Node2D"]
+script = ExtResource("1_mbxjw")
+
+[node name="ObstacleSpawnPoints" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="LeftTop" type="Marker2D" parent="ObstacleSpawnPoints"]
+position = Vector2(-100, 125)
+
+[node name="ObstacleWall2" parent="ObstacleSpawnPoints/LeftTop" instance=ExtResource("1_x2t3o")]
+visible = false
+position = Vector2(0, 125)
+
+[node name="LeftBottom" type="Marker2D" parent="ObstacleSpawnPoints"]
+position = Vector2(-100, 595)
+
+[node name="ObstacleWall2" parent="ObstacleSpawnPoints/LeftBottom" instance=ExtResource("1_x2t3o")]
+visible = false
+position = Vector2(0, -125)
+
+[node name="RightTop" type="Marker2D" parent="ObstacleSpawnPoints"]
+position = Vector2(1380, 125)
+
+[node name="ObstacleWall2" parent="ObstacleSpawnPoints/RightTop" instance=ExtResource("1_x2t3o")]
+visible = false
+position = Vector2(0, 125)
+
+[node name="RightBottom" type="Marker2D" parent="ObstacleSpawnPoints"]
+position = Vector2(1380, 595)
+
+[node name="ObstacleWall2" parent="ObstacleSpawnPoints/RightBottom" instance=ExtResource("1_x2t3o")]
+visible = false
+position = Vector2(0, -125)
+
+[node name="ObstacleParent" type="Node" parent="."]
+unique_name_in_owner = true

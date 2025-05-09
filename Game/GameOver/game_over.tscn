@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=3 uid="uid://bm6ojf7hw7uvk"]
+
+[ext_resource type="Texture2D" uid="uid://c5iageax1s8q7" path="res://white_cube.png" id="1_ng542"]
+[ext_resource type="Script" path="res://Game/GameOver/GameOver.cs" id="1_yidtx"]
+[ext_resource type="LabelSettings" uid="uid://bnexkb2h1wrku" path="res://MainMenu/MainMenuButtons.tres" id="2_uyqy1"]
+
+[node name="GameOver" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_yidtx")
+
+[node name="GameOverText" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.882353)
+theme_override_font_sizes/font_size = 126
+text = "GAME OVER!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FinalScore" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.882353)
+theme_override_font_sizes/font_size = 76
+text = "Final Score: 12034"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_top = 105
+theme_override_constants/margin_bottom = 65
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 305
+alignment = 1
+
+[node name="Retry" type="CenterContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="RetryButton" type="TextureButton" parent="MarginContainer/HBoxContainer/Retry"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.117647)
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+texture_normal = ExtResource("1_ng542")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Retry"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.882353)
+text = "RETRY"
+label_settings = ExtResource("2_uyqy1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Menu" type="CenterContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MenuButton" type="TextureButton" parent="MarginContainer/HBoxContainer/Menu"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.117647)
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+texture_normal = ExtResource("1_ng542")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Menu"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.882353)
+text = "MENU"
+label_settings = ExtResource("2_uyqy1")
+horizontal_alignment = 1
+vertical_alignment = 1

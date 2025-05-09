@@ -1,0 +1,64 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Korvaava_Peli"
+run/main_scene="res://Game/SceneManager/scene_manager.tscn"
+config/features=PackedStringArray("4.3", "C#", "Mobile")
+boot_splash/bg_color=Color(0.309804, 0.466667, 0.501961, 1)
+boot_splash/fullsize=false
+config/icon="res://icon.svg"
+run/bg_color=Color(0.309804, 0.466667, 0.501961, 1)
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
+[dotnet]
+
+project/assembly_name="Korvaava_Peli"
+
+[file_customization]
+
+folder_colors={
+"res://Game/": "pink",
+"res://MainMenu/": "green",
+"res://Objects/": "orange",
+"res://Objects/Items/": "yellow",
+"res://Objects/Obstacles/": "red",
+"res://Player/": "blue",
+"res://UI/": "teal"
+}
+
+[global_group]
+
+Obstacle=""
+Player=""
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+pointing/size/mode=0
+
+[internationalization]
+
+rendering/force_right_to_left_layout_direction=true
+
+[physics]
+
+2d/default_linear_damp=0.0
+2d/default_angular_damp=0.0
+common/physics_interpolation=true
+
+[rendering]
+
+renderer/rendering_method="mobile"

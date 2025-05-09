@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dy70ldfroh4tw"]
+
+[ext_resource type="Script" path="res://Objects/Items/ItemSpawner.cs" id="1_jei2h"]
+
+[node name="ItemSpawner" type="Node"]
+script = ExtResource("1_jei2h")
+
+[node name="SpawnPoints" type="Node" parent="."]
+
+[node name="BottomLeft" type="Marker2D" parent="SpawnPoints"]
+unique_name_in_owner = true
+position = Vector2(100, 620)
+
+[node name="TopRight" type="Marker2D" parent="SpawnPoints"]
+unique_name_in_owner = true
+position = Vector2(1180, 100)

@@ -1,0 +1,87 @@
+[gd_scene load_steps=11 format=3 uid="uid://dkfes20bih0fv"]
+
+[ext_resource type="Script" path="res://UI/UserInterface.cs" id="1_e6wi2"]
+[ext_resource type="Texture2D" uid="uid://c5iageax1s8q7" path="res://white_cube.png" id="2_325xq"]
+[ext_resource type="PackedScene" uid="uid://bm6ojf7hw7uvk" path="res://Game/GameOver/game_over.tscn" id="2_lbdy3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8vlp"]
+bg_color = Color(0.152941, 0.2, 0.211765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ornqw"]
+bg_color = Color(0.309804, 0.466667, 0.501961, 1)
+
+[sub_resource type="Theme" id="Theme_wguus"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_e8vlp")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_ornqw")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n6oud"]
+bg_color = Color(0.1512, 0.20118, 0.21, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vx8ra"]
+bg_color = Color(0.31, 0.468333, 0.5, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_acmog"]
+font_size = 146
+font_color = Color(1, 1, 1, 0.235294)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0ybfw"]
+font_size = 250
+font_color = Color(1, 1, 1, 0.407843)
+
+[node name="UserInterface" type="Node"]
+script = ExtResource("1_e6wi2")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+z_index = -1000
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+theme = SubResource("Theme_wguus")
+theme_override_styles/background = SubResource("StyleBoxFlat_n6oud")
+theme_override_styles/fill = SubResource("StyleBoxFlat_vx8ra")
+min_value = 1.0
+step = 33.0
+value = 100.0
+fill_mode = 3
+show_percentage = false
+
+[node name="Multiplier" type="TextureRect" parent="HealthBar"]
+unique_name_in_owner = true
+self_modulate = Color(1, 0.8815, 0.21, 0.0588235)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_325xq")
+
+[node name="Label" type="Label" parent="HealthBar/Multiplier"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -360.0
+text = "2X"
+label_settings = SubResource("LabelSettings_acmog")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreCounter" type="Label" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "2131"
+label_settings = SubResource("LabelSettings_0ybfw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOver" parent="." instance=ExtResource("2_lbdy3")]
+visible = false
