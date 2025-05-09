@@ -25,20 +25,6 @@ public partial class Player : Node2D
 
 	public override void _Input(InputEvent @event)
 	{
-		if (@event is InputEventScreenTouch screenTouch)
-		{
-			if (screenTouch.IsPressed())
-			{
-				GD.Print("Screen touched at: " + screenTouch.Position);
-				this.GlobalPosition = screenTouch.Position;
-				touching = true;
-			}
-			else
-			{
-				touching = false;
-			}
-		}
-
 		if (@event is InputEventScreenDrag screenDrag && touching)
 		{
 			//GD.Print("Screen dragged at: " + screenDrag.Position);
@@ -46,6 +32,24 @@ public partial class Player : Node2D
 
 			// Move the player to the target position
 			this.GlobalPosition = targetPosition;
+		}
+		else if (@event is InputEventScreenTouch screenTouch)
+		{
+			if (screenTouch.IsPressed())
+			{
+				GD.Print("Screen touched at: " + screenTouch.Position);
+				targetPosition = screenTouch.Position;
+
+				// Move the player to the target position
+				this.GlobalPosition = targetPosition;
+				touching = true;
+			}
+			else if (screenTouch.IsReleased())
+			{
+				GD.Print("Screen released at: " + screenTouch.Position);
+				IsHit();
+				touching = false;
+			}
 		}
 	}
 

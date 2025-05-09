@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dki4uq2jyde6x"]
+[gd_scene load_steps=4 format=3 uid="uid://dki4uq2jyde6x"]
 
 [ext_resource type="PackedScene" uid="uid://dkfes20bih0fv" path="res://UI/user_interface.tscn" id="1_hapx7"]
 [ext_resource type="PackedScene" uid="uid://b3b6yxw8sblbb" path="res://Player/player.tscn" id="2_ma8ll"]
 [ext_resource type="PackedScene" uid="uid://ce21v82a0bnnt" path="res://Objects/object_scene.tscn" id="3_brv8r"]
-[ext_resource type="PackedScene" uid="uid://bfjq7xbbhuu7y" path="res://Objects/Items/Scenes/score_multiplier.tscn" id="4_7atxk"]
 
 [node name="Gameplay" type="Node2D"]
 
@@ -16,6 +15,3 @@ scale = Vector2(2, 2)
 
 [node name="ObjectScene" parent="." instance=ExtResource("3_brv8r")]
 position = Vector2(293, 313)
-
-[node name="ScoreMultiplier" parent="ObjectScene" instance=ExtResource("4_7atxk")]
-position = Vector2(-293, -313)
